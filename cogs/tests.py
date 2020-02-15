@@ -1,9 +1,8 @@
 """
 Author: Soumyakanti (r.soumyakanti@outlook.com)
 
-Last edited: 13th February, 2020
+Last edited: 15th February, 2020
 """
-
 
 import discord
 from discord.ext import commands
@@ -13,16 +12,27 @@ class Tests(commands.Cog):
 
    def __init__(self, bot):
       self.bot = bot
+      self.bot_name = 'LA Advanced Stats Bot'
 
    @commands.command()
    async def test(self,ctx):
       """Sends a reply!"""
-      await ctx.send('Testing succesful!')
+      await ctx.trigger_typing()
+      em = discord.Embed(color=discord.Colour.dark_green())
+      em.set_author(name=f'{self.bot_name}', icon_url="https://icons8.com/vue-static/landings/animated-icons/icons/checkmark-ok/checkmark-ok.gif")
+      em.description = 'Testing succesful!'
+      await ctx.send(embed=em)
+
+
 
    @commands.command()
    async def ping(self, ctx):
       """Pings you back!"""
-      await ctx.send(f'Pong!\nYou are {round(self.bot.latency*1000)}ms away from me!')
-
+      await ctx.trigger_typing()
+      em = discord.Embed(color=discord.Colour.dark_green())
+      em.set_author(name=f'{self.bot_name}', icon_url="https://icons8.com/vue-static/landings/animated-icons/icons/hourglass/hourglass.gif")
+      em.description = f'Pong!\nYou are {round(self.bot.latency*1000)}ms away from me!'
+      await ctx.send(embed=em)
+      
 def setup(bot):
    bot.add_cog(Tests(bot))

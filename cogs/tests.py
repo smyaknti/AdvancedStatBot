@@ -1,7 +1,7 @@
 """
 Author: Soumyakanti (r.soumyakanti@outlook.com)
 
-Last edited: 15th February, 2020
+Last edited: 16th February, 2020
 """
 
 import discord
@@ -19,10 +19,9 @@ class Tests(commands.Cog):
       """Sends a reply!"""
       await ctx.trigger_typing()
       em = discord.Embed(color=discord.Colour.dark_green())
-      em.set_author(name=f'{self.bot_name}', icon_url="https://icons8.com/vue-static/landings/animated-icons/icons/checkmark-ok/checkmark-ok.gif")
-      em.description = 'Testing succesful!'
+      em.set_author(name=f'{self.bot_name}', icon_url="https://cdn.discordapp.com/emojis/664337403716173835.gif")
+      em.set_footer(text = 'Testing succesful!',icon_url="https://icons8.com/vue-static/landings/animated-icons/icons/checkmark-ok/checkmark-ok.gif")
       await ctx.send(embed=em)
-
 
 
    @commands.command()
@@ -30,8 +29,8 @@ class Tests(commands.Cog):
       """Pings you back!"""
       await ctx.trigger_typing()
       em = discord.Embed(color=discord.Colour.dark_green())
-      em.set_author(name=f'{self.bot_name}', icon_url="https://icons8.com/vue-static/landings/animated-icons/icons/hourglass/hourglass.gif")
-      em.description = f'Pong!\nYou are {round(self.bot.latency*1000)}ms away from me!'
+      em.set_author(name=f'{self.bot_name}', icon_url="https://cdn.discordapp.com/emojis/664337403716173835.gif")
+      em.set_footer(text =f'Pong!\nYou are {round(self.bot.latency*1000)}ms away from me!', icon_url="https://icons8.com/vue-static/landings/animated-icons/icons/hourglass/hourglass.gif")
       await ctx.send(embed=em)
       
 def setup(bot):
